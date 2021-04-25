@@ -8,10 +8,11 @@ jobs:
   greet-user:
     name: Greet user
     runs-on: ubuntu-latest
+    container:
+      image: keybaseio/client:stable-node-slim
     steps:
       - uses: actions/checkout@v2
       - name: 'Run action'
-        uses: docker://keybaseio/client:stable-node-slim
       - run: npm install
       - run: npm greet
         env:
