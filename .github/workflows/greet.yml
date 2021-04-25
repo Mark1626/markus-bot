@@ -4,22 +4,29 @@ on:
   push:
     branch:
       - master
-  schedule:
-    - cron: '0 * * * *'
 
 jobs:
   greet-user:
     name: Greet user
     runs-on: ubuntu-latest
-    container:
-      image: keybaseio/client:stable-node-slim
-      env:
+    steps:
+      # ... steps where you do something here ...
+      - name: Build Live Notification
+        env:
+          JSON_MSG: >-
+            {
+                "method": "send",
+                "params": {
+                    "options": {"channel": {"name": "mark854"},
+                    "message": {"body": "Hello Mark"}}
+                }
+            }            
+        run: echo $JSON_MSG > message.json
+      - name: Keybase Notification
+        uses: docker://keybaseio/client:stable
+        env:
           KEYBASE_USERNAME: ${{ secrets.KB_USERNAME }}
           KEYBASE_PAPERKEY: ${{ secrets.KB_PAPERKEY }}
           KEYBASE_SERVICE: "1"
-    steps:
-      - uses: actions/checkout@v2
-      - name: 'Run action'
-        run: |
-          npm install
-          npm run greet
+        with:
+          args: keybase chat api -i message.json
