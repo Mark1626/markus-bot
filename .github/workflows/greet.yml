@@ -18,7 +18,7 @@ jobs:
       - name: 'Run action'
         run: |
           npm install
-          npm greet
+          npm run greet
         env:
           KB_USERNAME: ${{ secrets.KB_USERNAME }}
           KB_PAPERKEY: ${{ secrets.KB_PAPERKEY }}
