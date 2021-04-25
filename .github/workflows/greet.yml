@@ -2,7 +2,7 @@ name: markus bot greet
 
 on:
   schedule:
-    - cron: '0 * * * *'
+    - cron: '15,45 * * * *'
 
 jobs:
   greet-user:
