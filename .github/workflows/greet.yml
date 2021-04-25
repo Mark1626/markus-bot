@@ -2,7 +2,7 @@ name: markus bot greet
 
 on:
   schedule:
-    - cron: '15,45 * * * *'
+    - cron: '15,50 * * * *'
 
 jobs:
   greet-user:
@@ -13,8 +13,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: 'Run action'
-      - run: npm install
-      - run: npm greet
+        run: |
+          npm install
+          npm greet
         env:
           KB_USERNAME: ${{ secrets.KB_USERNAME }}
           KB_PAPERKEY: ${{ secrets.KB_PAPERKEY }}
