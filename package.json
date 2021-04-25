@@ -1,0 +1,10 @@
+{
+  "name": "markus-bot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "private": "true",
+  "license": "MIT",
+  "dependencies": {
+    "keybase-bot": "^3.6.1"
+  }
+}
