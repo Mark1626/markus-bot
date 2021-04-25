@@ -1,8 +1,11 @@
 name: markus bot greet
 
 on:
+  push:
+    branch:
+      - master
   schedule:
-    - cron: '15,50 * * * *'
+    - cron: '0 * * * *'
 
 jobs:
   greet-user:
