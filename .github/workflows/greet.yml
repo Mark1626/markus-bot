@@ -11,11 +11,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: 'Run action'
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12.x
-      - run: yarn install
-      - run: node greet.js
+        uses: docker://keybaseio/client:stable-node-slim
+      - run: npm install
+      - run: npm greet
         env:
           KB_USERNAME: ${{ secrets.KB_USERNAME }}
           KB_PAPERKEY: ${{ secrets.KB_PAPERKEY }}

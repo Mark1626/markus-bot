@@ -4,6 +4,9 @@
   "main": "index.js",
   "private": "true",
   "license": "MIT",
+  "scripts": {
+    "greet": "node greet.js"
+  },
   "dependencies": {
     "keybase-bot": "^3.6.1"
   }
