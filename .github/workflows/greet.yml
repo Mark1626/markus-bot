@@ -13,12 +13,13 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: keybaseio/client:stable-node-slim
+      env:
+          KEYBASE_USERNAME: ${{ secrets.KB_USERNAME }}
+          KEYBASE_PAPERKEY: ${{ secrets.KB_PAPERKEY }}
+          KEYBASE_SERVICE: "1"
     steps:
       - uses: actions/checkout@v2
       - name: 'Run action'
         run: |
           npm install
           npm run greet
-        env:
-          KB_USERNAME: ${{ secrets.KB_USERNAME }}
-          KB_PAPERKEY: ${{ secrets.KB_PAPERKEY }}

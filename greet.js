@@ -1,5 +1,5 @@
-const username = process.env.KB_USERNAME
-const paperkey = process.env.KB_PAPERKEY
+const username = process.env.KEYBASE_USERNAME
+const paperkey = process.env.KEYBASE_PAPERKEY
 
 const Bot = require('keybase-bot')
 const quotes = require('./quotes.json').quotes
