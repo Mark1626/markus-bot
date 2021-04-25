@@ -9,11 +9,13 @@ jobs:
     name: Greet user
     runs-on: ubuntu-latest
     steps:
-      - name: 'Checkout repo'
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
       - name: 'Run action'
-        run: |
-          node greet.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - run: yarn install
+      - run: node greet.js
         env:
           KB_USERNAME: ${{ secrets.KB_USERNAME }}
           KB_PAPERKEY: ${{ secrets.KB_PAPERKEY }}
